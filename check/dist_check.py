@@ -62,6 +62,7 @@ def mesh_distance(gt_path, org_path, out_path, real=False):
     hd_hole = np.sum(np.abs(quality_hole)) / len(quality_hole) / diag
     ms.apply_filter("colorize_by_vertex_quality", minval=0, maxval=max_val, zerosym=True)
     out_dir = os.path.dirname(out_path)
-    out_file = os.path.basename(out_path)
+    # Update file path to save as .ply instead of .obj to retain color
+    out_file = os.path.basename(out_path).replace('.obj', '.ply')
     out_path = "{}/all={:.6f}-hole={:.6f}-{}".format(out_dir, hd_all, hd_hole, out_file)
     ms.save_current_mesh(out_path)

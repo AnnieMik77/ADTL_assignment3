@@ -60,7 +60,7 @@ def normalize_scale(ms, dirname, meshname):
         pass
     ms.set_current_mesh(1)
     # [original, remeshed<-current, gt]
-    normalize(ms)
+    # normalize(ms)
 
     ms.save_current_mesh("{}/tmp/{}_initial.obj".format(dirname, meshname))
     ms.set_current_mesh(0)
